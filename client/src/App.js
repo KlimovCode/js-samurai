@@ -1,9 +1,14 @@
 import './App.css'
+import Header from './common/Header'
+import Nav from './common/Nav'
+import ProfilePage from './pages/ProfilePage/ProfilePage'
 
 function App() {
   return (
     <div className="App">
-      <h1>hi</h1>
+      <Header />
+      <Nav />
+      <ProfilePage />
     </div>
   );
 }
