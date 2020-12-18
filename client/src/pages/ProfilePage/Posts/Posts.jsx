@@ -2,6 +2,10 @@ import React, { Component } from 'react'
 import avatar from '../../../assets/avatar.jpeg'
 
 export default class Posts extends Component {
+  posts = [
+    { id: 1, name: 'AAA' }
+  ]
+
   render() {
     return (
       <div className="posts">
