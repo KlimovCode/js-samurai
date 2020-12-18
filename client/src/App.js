@@ -22,7 +22,9 @@ function App(props) {
 
             <Route path="/profile" render={() => <ProfilePage
               profilePage={props.state.profilePage}
-              addPost={props.addPost} />} exact />
+              addPost={props.addPost}
+              addPostValueHandler={props.addPostValueHandler} />
+            } exact />
 
             <Route path="/dialogs" render={() => <DialogsPage />} exact />
           </div>

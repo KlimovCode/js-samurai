@@ -11,7 +11,9 @@ export default class ProfilePage extends Component {
         <h1>ProfilePage</h1>
         <UserInfo />
         <AddPost
-          addPost={this.props.addPost} />
+          addPost={this.props.addPost}
+          addPostValue={this.props.profilePage.addPostValue}
+          addPostValueHandler={this.props.addPostValueHandler} />
         <Posts posts={this.props.profilePage.posts} />
       </div>
     )
