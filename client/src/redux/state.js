@@ -1,4 +1,4 @@
-import { rerenderTree } from '../render'
+let rerenderTree = () => console.log('State changed')
 
 const state = {
   profilePage: {
@@ -19,4 +19,7 @@ export const addPostValueHandler = txt => {
   rerenderTree(state)
 }
 
+export const subscribe = (observer) => {
+  rerenderTree = observer
+}
 export default state
