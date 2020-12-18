@@ -2,10 +2,6 @@ import React, { Component } from 'react'
 import avatar from '../../../assets/avatar.jpeg'
 
 export default class Posts extends Component {
-  // posts = [
-  //   { id: 1, author: 'AAA', text: 'abc text', likes: 1 },
-  //   { id: 2, author: 'BBB', text: 'bac text', likes: 3 }
-  // ]
 
   getPosts = () => {
     return this.props.posts.map(post => {
