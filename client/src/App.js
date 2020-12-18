@@ -16,8 +16,14 @@ function App(props) {
           <Header />
           <div className="main">
             <Nav />
-            <Route path="/" render={() => <ProfilePage posts={props.state.posts} />} exact />
-            <Route path="/profile" render={() => <ProfilePage posts={props.state.posts} />} exact />
+            {/* <Route path="/" render={() => <ProfilePage
+              profilePage={props.state.profilePage}
+              addPost={props.addPost} />} exact /> */}
+
+            <Route path="/profile" render={() => <ProfilePage
+              profilePage={props.state.profilePage}
+              addPost={props.addPost} />} exact />
+
             <Route path="/dialogs" render={() => <DialogsPage />} exact />
           </div>
         </div>

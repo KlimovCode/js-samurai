@@ -10,8 +10,9 @@ export default class ProfilePage extends Component {
       <div>
         <h1>ProfilePage</h1>
         <UserInfo />
-        <AddPost />
-        <Posts posts={this.props.posts} />
+        <AddPost
+          addPost={this.props.addPost} />
+        <Posts posts={this.props.profilePage.posts} />
       </div>
     )
   }
