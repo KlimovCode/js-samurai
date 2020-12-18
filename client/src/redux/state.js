@@ -9,8 +9,7 @@ const state = {
 }
 
 export const addPost = txt => {
-  console.log(txt);
-  // state.profilePage.addPostValue = data
+  state.profilePage.posts.push({ id: 3, author: 'CCC', text: txt, likes: 3 })
 }
 
 export default state

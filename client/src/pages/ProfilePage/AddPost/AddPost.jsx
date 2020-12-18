@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 
 export default (props) => {
   let txt = React.createRef()
-  console.log(txt);
-
 
   return (
     <div className="addpost">
@@ -12,7 +10,7 @@ export default (props) => {
         ref={txt}
       ></textarea>
       <button className="addpost__btn"
-        onClick={() => console.log(txt.current.value)}
+        onClick={() => props.addPost(txt.current.value)}
       >Add post</button>
     </div >
   )
