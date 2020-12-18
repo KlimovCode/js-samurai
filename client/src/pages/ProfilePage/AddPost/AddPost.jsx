@@ -10,7 +10,11 @@ export default (props) => {
         ref={txt}
       ></textarea>
       <button className="addpost__btn"
-        onClick={() => props.addPost(txt.current.value)}
+        onClick={() => {
+          props.addPost(txt.current.value)
+          txt.current.value = ''
+        }
+        }
       >Add post</button>
     </div >
   )

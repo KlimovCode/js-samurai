@@ -1,3 +1,5 @@
+import { rerenderTree } from '../render'
+
 const state = {
   profilePage: {
     posts: [
@@ -10,6 +12,7 @@ const state = {
 
 export const addPost = txt => {
   state.profilePage.posts.push({ id: 3, author: 'CCC', text: txt, likes: 3 })
+  rerenderTree(state)
 }
 
 export default state
