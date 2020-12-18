@@ -1,25 +1,25 @@
-let rerenderTree = () => console.log('State changed')
+export default {
+  _state: {
+    profilePage: {
+      posts: [
+        { id: 1, author: 'AAA', text: 'abc text', likes: 1 },
+        { id: 2, author: 'BBB', text: 'bac text', likes: 3 }
+      ],
+      addPostValue: ''
+    }
+  },
+  getState() { return this._state },
 
-const state = {
-  profilePage: {
-    posts: [
-      { id: 1, author: 'AAA', text: 'abc text', likes: 1 },
-      { id: 2, author: 'BBB', text: 'bac text', likes: 3 }
-    ],
-    addPostValue: ''
-  }
-}
+  addPost(txt) {
+    this._state.profilePage.posts.push({ id: 3, author: 'CCC', text: txt, likes: 3 })
+    this._state.profilePage.addPostValue = ''
+    this._callSubscriber(this._state)
+  },
+  addPostValueHandler(txt) {
+    this._state.profilePage.addPostValue = txt
+    this._callSubscriber(this._state)
+  },
 
-export const addPost = txt => {
-  state.profilePage.posts.push({ id: 3, author: 'CCC', text: txt, likes: 3 })
-  rerenderTree(state)
+  _callSubscriber() { console.log('State changed') },
+  subscribe(observer) { this._callSubscriber = observer }
 }
-export const addPostValueHandler = txt => {
-  state.profilePage.addPostValue = txt
-  rerenderTree(state)
-}
-
-export const subscribe = (observer) => {
-  rerenderTree = observer
-}
-export default state
