@@ -8,7 +8,7 @@ import Nav from './common/Nav'
 import ProfilePage from './pages/ProfilePage/ProfilePage'
 import DialogsPage from './pages/DialogsPage/DialogsPage'
 
-function App() {
+function App(props) {
   return (
     <BrowserRouter>
       <div className="App">
@@ -16,9 +16,9 @@ function App() {
           <Header />
           <div className="main">
             <Nav />
-            <Route path="/" component={ProfilePage} exact />
-            <Route path="/profile" component={ProfilePage} exact />
-            <Route path="/dialogs" component={DialogsPage} exact />
+            <Route path="/" render={() => <ProfilePage posts={props.posts} />} exact />
+            <Route path="/profile" render={() => <ProfilePage posts={props.posts} />} exact />
+            <Route path="/dialogs" render={() => <DialogsPage />} exact />
           </div>
         </div>
       </div>
