@@ -60,6 +60,15 @@
   border-radius: 5px;
   box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);;
 }
-.post .text {
+.post__content {
+  display: flex;
+  flex-direction: column;
   margin-left: 20px;
+  justify-content: space-between;
+}
+.post__content .text {
+  margin-left: 20px;
+}
+.post__content .likes {
+  color: #455F8F;
 }
