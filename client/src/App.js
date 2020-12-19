@@ -22,6 +22,8 @@ function App(props) {
 
             <Route path="/profile" render={() => <ProfilePage
               profilePage={props.state.profilePage}
+              dispatch={props.dispatch}
+
               addPost={props.addPost}
               addPostValueHandler={props.addPostValueHandler} />
             } exact />
