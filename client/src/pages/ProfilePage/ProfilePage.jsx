@@ -12,9 +12,7 @@ export default class ProfilePage extends Component {
         <UserInfo />
         <AddPost
           dispatch={this.props.dispatch}
-          addPost={this.props.addPost}
-          addPostValue={this.props.profilePage.addPostValue}
-          addPostValueHandler={this.props.addPostValueHandler} />
+          addPostValue={this.props.profilePage.addPostValue} />
         <Posts posts={this.props.profilePage.posts} />
       </div>
     )

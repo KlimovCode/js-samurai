@@ -6,7 +6,7 @@ import store from './redux/store';
 let rerenderTree = (state) => {
   ReactDOM.render(
     <React.StrictMode>
-      <App state={state} dispatch={store.dispatch.bind(store)} addPost={store.addPost.bind(store)} addPostValueHandler={store.addPostValueHandler.bind(store)} />
+      <App state={state} dispatch={store.dispatch.bind(store)} />
     </React.StrictMode>,
     document.getElementById('root')
   );
