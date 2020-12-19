@@ -1,5 +1,4 @@
-const ADD_POST = 'ADD_POST'
-const ADD_POST_VALUE_HANDLER = 'ADD_POST_VALUE_HANDLER'
+import profileReducer from './profile-reducer'
 
 export default {
   _state: {
@@ -16,22 +15,7 @@ export default {
   subscribe(observer) { this._callSubscriber = observer },
 
   dispatch(action, state = this._state) {
-    const reducer = (state, action) => {
-      switch (action.type) {
-        case ADD_POST:
-          state.profilePage.posts.push({ id: 3, author: 'CCC', text: action.txt, likes: 3 })
-          state.profilePage.addPostValue = ''
-          return state
-        case ADD_POST_VALUE_HANDLER:
-          state.profilePage.addPostValue = action.txt
-          return state
-
-        default: return state
-      }
-    }
-    this._callSubscriber(reducer(state, action))
+    state.profilePage = profileReducer(state.profilePage, action)
+    this._callSubscriber(state)
   }
 }
-
-export const addPost = (txt) => ({ type: ADD_POST, txt: txt })
-export const addPostValueHandler = (txt) => ({ type: ADD_POST_VALUE_HANDLER, txt: txt })

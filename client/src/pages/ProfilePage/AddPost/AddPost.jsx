@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import { addPost, addPostValueHandler } from '../../../redux/store'
+import { addPost, addPostValueHandler } from '../../../redux/profile-reducer'
 
 export default (props) => {
   let addPostValueRef = React.createRef()
