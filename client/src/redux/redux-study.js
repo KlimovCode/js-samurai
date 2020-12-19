@@ -7,11 +7,14 @@ export const study = () => {
 
   function reducer(state = initialState, action) {
     if (action.type === 'INCREMENT') {
-      const newState = {
+      // const newState = {
+      //   ...state,
+      //   num: state.num + 1
+      // }
+      return {
         ...state,
         num: state.num + 1
       }
-      return newState
     }
     return state
   }
