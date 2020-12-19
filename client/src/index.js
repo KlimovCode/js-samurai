@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import store from './redux/store';
-import { study } from './redux/redux-study';
+// import { study } from './redux/redux-study';
+import { study2 } from './redux/react-redux-study';
 
 let rerenderTree = (state) => {
   ReactDOM.render(
@@ -16,4 +17,4 @@ rerenderTree(store.getState())
 
 store.subscribe(rerenderTree)
 
-study()
+study2()
