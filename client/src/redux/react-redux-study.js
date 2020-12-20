@@ -11,28 +11,37 @@ const initialState = {
   surname: 'Ivanov'
 }
 
+const changeName = txt => ({ type: CHANGE_NAME, txt })
+const changeSurname = (txt) => ({ type: CHANGE_SURNAME, txt })
+
 function reducer(state = initialState, action) {
   switch (action.type) {
     case CHANGE_NAME: {
-      return state
+      return {
+        ...state,
+        name: action.txt
+      }
     }
     case CHANGE_SURNAME: {
-      return state
+      return {
+        ...state,
+        surname: action.txt
+      }
     }
     default: return state
   }
 }
 
 const store = createStore(reducer)
-console.log(store)
 
 const MainComponent = (props) => {
   const { name, surname } = props
+  const { changeName, changeSurname } = props
 
   return (
     <div>
-      <input type="text" placeholder="name" value={name} /> <br />
-      <input type="text" placeholder="surname" value={surname} />
+      <input type="text" placeholder="name" value={name} onChange={(event) => changeName(event.target.value)} /> <br />
+      <input type="text" placeholder="surname" value={surname} onChange={(event) => changeSurname(event.target.value)} />
 
       <p>
         {`${name} ${surname}`}
@@ -41,12 +50,16 @@ const MainComponent = (props) => {
   )
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   name: state.name,
   surname: state.surname
 })
+const mapDispatchToProps = dispatch => ({
+  changeName: (txt) => dispatch(changeName(txt)),
+  changeSurname: (txt) => dispatch(changeSurname(txt))
+})
 
-const WrappedMainComponent = connect(mapStateToProps)(MainComponent)
+const WrappedMainComponent = connect(mapStateToProps, mapDispatchToProps)(MainComponent)
 
 export function study2() {
   ReactDOM.render(
